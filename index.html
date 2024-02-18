@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Amazon Product Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #cccccc; 
+            border-radius: 5px;
+            
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .loader {
+            display: none;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Amazon Product Scraper</h1>
+    <form action="/search" method="POST" id="searchForm" onsubmit="return validateForm()">
+        <div>
+            <label for="product">Enter the product name:</label><br>
+            <input type="text" id="product" name="product" required><br>
+            <input type="submit" value="Search">
+            <div class="loader" id="loader"></div>
+        </div>
+    </form>
+
+    <script>
+        function validateForm() {
+            var productName = document.getElementById("product").value.trim();
+            if (productName === "") {
+                alert("Please enter something!");
+                return false;
+            }
+            document.getElementById("loader").style.display = "inline-block";
+            return true;
+        }
+    </script>
+</body>
+</html>
