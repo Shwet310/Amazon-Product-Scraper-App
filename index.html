@@ -71,7 +71,8 @@
     <form action="/search" method="POST" id="searchForm" onsubmit="return validateForm()">
         <div>
             <label for="product">Enter the product name:</label><br>
-            <input type="text" id="product" name="product" required><br>
+            <input type="text" id="product" name="product" placeholder=" eg. mouse, keyboard, etc" required><br>
+            
             <input type="submit" value="Search">
             <div class="loader" id="loader"></div>
         </div>

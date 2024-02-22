@@ -80,7 +80,7 @@ def search():
                         with urllib.request.urlopen(img_url) as response:
                             if response.status == 200:
                                 img_data = np.array(Image.open(response))
-                                pil_img = Image.fromarray(img_data)
+                                pil_img = Image.fromarray(img_str)
                                 buffered = BytesIO()
                                 pil_img.save(buffered, format="JPEG")
                                 img_str = base64.b64encode(buffered.getvalue()).decode()

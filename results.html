@@ -11,27 +11,11 @@
   </head>
   <body>
     <div class="container">
-        <!-- Colored icon button -->
-      <!--<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-      <i class="material-icons">Home</i>
-      </button>
-      <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">Home</button>-->
+      
       <a class="nav-link active" aria-current="page" href="/">Home</a>
       <h1 class="text-center my-4">Search Results</h1>
-      <!--<button class="btn btn-primary" type="button" disabled>
-        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        <span role="status">Loading...</span>
-      </button>
-    <div class="text-center mb-4">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <div>Loading...</div>
-    </div>-->
       
-      
-    
-  
+    {% if results|length > 0 %}
       {% for result in results %}
       
       <div class="bg-light text-dark">
@@ -68,6 +52,9 @@
     </div>
 
       {% endfor %}
+    {% else %}
+    <h2 class = "text-center my-4"> No results found!</h2>
+    {% endif %}
     </div>
 
     </div>
